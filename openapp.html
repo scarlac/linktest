@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open App or Store</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+</head>
+<body style="background: #f00">
+    <h1>Opening App...</h1>
+    <p>If nothing happens, <a id="store-link" href="#">click here</a> to download the app.</p>
+    <iframe id="l" width="100" height="100" style="border:10px solid blue"></iframe>
+
+    <script>
+        // Configure these values for your app
+        const config = {
+            ios: {
+                appScheme: '', // Your app's custom URL scheme
+                appStoreUrl: 'https://apps.apple.com/us/app/tesla/id582007913',
+                universalLink: 'https://www.tesla.com/get-app/inbox_message_list_screen' // If you support Universal Links
+            },
+            android: {
+                appScheme: 'yourapp://',
+                playStoreUrl: 'https://play.google.com/store/apps/details?id=your.package.name',
+                intentUrl: 'intent://your-host#Intent;scheme=yourapp;package=your.package.name;end'
+            }
+        };
+
+        function openApp() {
+            const appStoreUrl = 'https://apps.apple.com/us/app/tesla/id582007913';
+            const deepLinkUrl = 'tesla://foo';
+            
+            const el = document.getElementById("l");
+            if (!el) {
+                alert('el not found');
+                return;
+            }
+            el.src = deepLinkUrl;
+
+
+            // If app isn't opened within 2 seconds, redirect to App Store
+            // setTimeout(() => {
+            //     window.location = config.ios.appStoreUrl;
+            //     // window.open(config.ios.appStoreUrl, '_self');
+            // }, 500);
+        }
+
+        // Update store link href based on platform
+        document.getElementById('store-link').href = config.ios.appStoreUrl;
+
+        // Try to open app when page loads
+        window.onload = function() {
+            openApp();
+        };
+    </script>
+</body>
+</html>

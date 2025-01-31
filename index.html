@@ -4,59 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open App or Store</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
-<body style="background: red">
+<body style="background: purple">
     <h1>Opening App...</h1>
-    <p>If nothing happens, <a id="store-link" href="#">click here</a> to download the app.</p>
-
-    <script>
-        // Configure these values for your app
-        const config = {
-            ios: {
-                appScheme: 'tesla://foo', // Your app's custom URL scheme
-                appStoreUrl: 'https://apps.apple.com/us/app/tesla/id582007913',
-                universalLink: 'https://www.tesla.com/get-app/inbox_message_list_screen' // If you support Universal Links
-            },
-            android: {
-                appScheme: 'yourapp://',
-                playStoreUrl: 'https://play.google.com/store/apps/details?id=your.package.name',
-                intentUrl: 'intent://your-host#Intent;scheme=yourapp;package=your.package.name;end'
-            }
-        };
-
-        function isIOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        }
-
-        function isAndroid() {
-            return /Android/.test(navigator.userAgent);
-        }
-
-        function openApp() {
-            if (isIOS()) {
-                // Try Universal Links first if supported
-                // if (config.ios.universalLink) {
-                //     window.location.href = config.ios.universalLink;
-                //     return;
-                // }
-
-                // Fallback to custom URL scheme
-                window.location.href = config.ios.appScheme;
-                
-                // If app isn't opened within 2 seconds, redirect to App Store
-                setTimeout(() => {
-                    window.location.href = config.ios.appStoreUrl;
-                }, 2000);
-            }
-        }
-
-        // Update store link href based on platform
-        document.getElementById('store-link').href = isIOS() 
-            ? config.ios.appStoreUrl 
-            : config.android.playStoreUrl;
-
-        // Try to open app when page loads
-        openApp();
-    </script>
+    <a href="openapp.html">Open page</a>
+    <br/>
+    <br/>
+    <a href="tesla://foo">Open deep link</a>
 </body>
 </html>
