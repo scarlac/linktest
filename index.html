@@ -47,24 +47,6 @@
                 setTimeout(() => {
                     window.location.href = config.ios.appStoreUrl;
                 }, 2000);
-            } 
-            else if (isAndroid()) {
-                // Try Android Intent URL first
-                window.location.href = config.android.intentUrl;
-                
-                // Fallback to custom URL scheme
-                setTimeout(() => {
-                    window.location.href = config.android.appScheme;
-                }, 1000);
-                
-                // If app isn't opened within 3 seconds total, redirect to Play Store
-                setTimeout(() => {
-                    window.location.href = config.android.playStoreUrl;
-                }, 3000);
-            }
-            else {
-                // For desktop or unsupported platforms, go to website or store
-                window.location.href = config.ios.appStoreUrl;
             }
         }
 
