@@ -35,10 +35,10 @@
         function openApp() {
             if (isIOS()) {
                 // Try Universal Links first if supported
-                if (config.ios.universalLink) {
-                    window.location.href = config.ios.universalLink;
-                    return;
-                }
+                // if (config.ios.universalLink) {
+                //     window.location.href = config.ios.universalLink;
+                //     return;
+                // }
 
                 // Fallback to custom URL scheme
                 window.location.href = config.ios.appScheme;
