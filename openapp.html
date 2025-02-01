@@ -40,8 +40,8 @@
             el.src = deepLinkUrl;
 
             const start = Date.now();
-            window.open(deepLinkUrl, '_self');
-            alert('took:' + (start - Date.now()))
+            location.href = deepLinkUrl;
+            alert('took:' + (Date.now() - start))
 
 
             // If app isn't opened within 2 seconds, redirect to App Store
