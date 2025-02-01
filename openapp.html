@@ -178,7 +178,13 @@
             linker.openURL(url);
         }
 
-        ghtest();
+        // ghtest();
+
+        setTimeout(function () { 
+            window.location = "#";  // Effectively cancels the following window.location command if the app is not installed.
+            // $('#smartAppBanner').show(); // Make up your own smart app banner, and show it.
+        }, 100);
+        window.location = "tesla://";
     </script>
 </body>
 </html>
