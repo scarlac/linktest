@@ -11,7 +11,8 @@
 <body style="background: #f00">
     <h1>Opening App...</h1>
     <p>If nothing happens, <a id="store-link" href="#">click here</a> to download the app.</p>
-    <iframe id="l" width="100" height="100" style="border:10px solid blue"></iframe>
+    <!--<iframe id="l" width="100" height="100" style="border:10px solid blue"></iframe>-->
+    <iframe src="tesla://inbox" style="display:none"></iframe>
 
     <script>
         // Configure these values for your app
@@ -59,9 +60,23 @@
         document.getElementById('store-link').href = config.ios.appStoreUrl;
 
         // Try to open app when page loads
-        window.onload = function() {
-            openApp();
-        };
+        // window.onload = function() {
+        //     // openApp();
+        //     // setup fallback (redirect to App Store)
+        //     var start = (new Date()).valueOf();
+        //     setTimeout(function() {
+        //         var end = (new Date()).valueOf();
+
+        //         // prevent App Store redirect upon returning to safari from myapp
+        //         if (end - start > 1000) return;
+
+        //         // get a seamless redirect if you use itms://... instead of http://itunes.com/...
+        //         window.location = appStoreUrl;
+        //     }, 25);
+
+        //     // Attempt to load my custom url scheme
+        //     window.location = deepLinkUrl;
+        // };
     </script>
 </body>
 </html>
