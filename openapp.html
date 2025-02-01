@@ -40,12 +40,12 @@
             el.src = deepLinkUrl;
 
             const start = Date.now();
-            requestIdleCallback(() => {
+            setTimeout(() => {
                 location.href = deepLinkUrl;
-            });
-            requestIdleCallback(() => {
+            }, 1);
+            setTimeout(() => {
                 alert('took:' + (Date.now() - start))
-            })
+            }, 1)
 
 
             // If app isn't opened within 2 seconds, redirect to App Store
